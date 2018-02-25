@@ -1,0 +1,14 @@
+@echo off
+echo Intalling softwares
+
+for /r "." %%a in (*.exe) do (
+echo Installing %%~fa
+::msiexec /i %%~fa ALLUSERS=1 /qn /norestart
+::start "" "%%~fa"
+if not "%errorlevel%"=="0" exit /b %errorlevel%
+echo Installation done for %%~fa
+)
+
+echo All Intallations done
+
+PAUSE
